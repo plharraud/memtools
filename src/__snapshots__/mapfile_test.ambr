@@ -2541,6 +2541,72 @@
         '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/crtn.o',
       ),
     ]),
+    'loads': list([
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/crti.o',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/crtbegin.o',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/crt0.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_core_led_fsm.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_drivers_i2c.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_drivers_led.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_drivers_uart.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_canMain.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_system_startup_stm32f103xb.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_system_syscalls.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_system_system_stm32f1xx.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_system_systick.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_utils_counter.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_utils_delay.c.o',
+      ),
+      tuple(
+        'firmware.elf.p/src_utils_trace.c.o',
+      ),
+      tuple(
+        'src/lib/rtt/librtt.a',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/libgcc.a',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/crtend.o',
+      ),
+      tuple(
+        '/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/crtn.o',
+      ),
+    ]),
+    'output': tuple(
+      'firmware.elf',
+      'elf32-littlearm',
+    ),
     'regions': list([
       tuple(
         'FLASH',
