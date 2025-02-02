@@ -1,8 +1,7 @@
 import sys
 import re
 import logging
-import pprint
-
+from pprint import pp
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -231,8 +230,8 @@ def parse_mapfile(mapfile_path):
         "output": memory_map_output,
     }
 
-def process_mapfile(mapfile_path):
 
+def process_mapfile(mapfile_path):
     parsed_mapfile = parse_mapfile(mapfile_path)
 
     return {
@@ -399,4 +398,4 @@ if __name__ == "__main__":
             if s.object_file not in mapfile["object_files"]:
                 log.warning("BAD", s.object_file)
 
-        pprint.pp(mapfile)
+        pp(mapfile)
