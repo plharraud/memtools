@@ -231,7 +231,7 @@ def parse_mapfile(mapfile_path):
     }
 
 
-def process_mapfile(mapfile_path):
+def process_mapfile(mapfile_path) -> dict[str, list]:
     parsed_mapfile = parse_mapfile(mapfile_path)
 
     return {
@@ -360,17 +360,18 @@ compile_unit_archive_r = re.compile(r"^(\S+)\((\S+)\)")
 class ObjectFile:
     def __init__(self, obj_string):
         if m := compile_unit_archive_r.match(obj_string):
-            g = m.groups()
-            self.compile_unit = g[0]
-            self.object_file = g[1]
             self.type = "archive"
+            g = m.groups()
+            self.compile_unit = g[0].split("/")[-1]
+            self.object_file = g[1]
         else:
+            self.type = "object"
             self.object_file = obj_string
             self.compile_unit = obj_string
-            self.type = "object"
 
-        if self.compile_unit.startswith("/"):
+        if obj_string.startswith("/"):
             self.source = "system"
+            self.compile_unit = self.compile_unit.split("/")[-1]
         else:
             self.source = "project"
 
