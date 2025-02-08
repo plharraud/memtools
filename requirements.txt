@@ -1,6 +1,8 @@
+basedpyright==1.27.0
 bigtree==0.23.1
 iniconfig==2.0.0
-narwhals==1.24.2
+narwhals==1.25.2
+nodejs-wheel-binaries==22.13.1
 numpy==2.2.2
 packaging==24.2
 pandas==2.2.3

@@ -1,0 +1,158 @@
+[
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Isrc/lib/rtt/librtt.a.p -Isrc/lib/rtt -I../src/lib/rtt -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -fPIC -DSEGGER_RTT_MAX_NUM_DOWN_BUFFERS=1 -DSEGGER_RTT_MAX_NUM_UP_BUFFERS=1 -DBUFFER_SIZE_UP=512 -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -mlong-calls -MD -MQ src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_ASM_ARMv7M.S.o -MF src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_ASM_ARMv7M.S.o.d -o src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_ASM_ARMv7M.S.o -c ../src/lib/rtt/RTT/SEGGER_RTT_ASM_ARMv7M.S",
+    "file": "../src/lib/rtt/RTT/SEGGER_RTT_ASM_ARMv7M.S",
+    "output": "src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_ASM_ARMv7M.S.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Isrc/lib/rtt/librtt.a.p -Isrc/lib/rtt -I../src/lib/rtt -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -fPIC -DSEGGER_RTT_MAX_NUM_DOWN_BUFFERS=1 -DSEGGER_RTT_MAX_NUM_UP_BUFFERS=1 -DBUFFER_SIZE_UP=512 -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -mlong-calls -MD -MQ src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_printf.c.o -MF src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_printf.c.o.d -o src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_printf.c.o -c ../src/lib/rtt/RTT/SEGGER_RTT_printf.c",
+    "file": "../src/lib/rtt/RTT/SEGGER_RTT_printf.c",
+    "output": "src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_printf.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Isrc/lib/rtt/librtt.a.p -Isrc/lib/rtt -I../src/lib/rtt -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -fPIC -DSEGGER_RTT_MAX_NUM_DOWN_BUFFERS=1 -DSEGGER_RTT_MAX_NUM_UP_BUFFERS=1 -DBUFFER_SIZE_UP=512 -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -mlong-calls -MD -MQ src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT.c.o -MF src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT.c.o.d -o src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT.c.o -c ../src/lib/rtt/RTT/SEGGER_RTT.c",
+    "file": "../src/lib/rtt/RTT/SEGGER_RTT.c",
+    "output": "src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Isrc/lib/rtt/librtt.a.p -Isrc/lib/rtt -I../src/lib/rtt -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -fPIC -DSEGGER_RTT_MAX_NUM_DOWN_BUFFERS=1 -DSEGGER_RTT_MAX_NUM_UP_BUFFERS=1 -DBUFFER_SIZE_UP=512 -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -mlong-calls -MD -MQ src/lib/rtt/librtt.a.p/Syscalls_SEGGER_RTT_Syscalls_GCC.c.o -MF src/lib/rtt/librtt.a.p/Syscalls_SEGGER_RTT_Syscalls_GCC.c.o.d -o src/lib/rtt/librtt.a.p/Syscalls_SEGGER_RTT_Syscalls_GCC.c.o -c ../src/lib/rtt/Syscalls/SEGGER_RTT_Syscalls_GCC.c",
+    "file": "../src/lib/rtt/Syscalls/SEGGER_RTT_Syscalls_GCC.c",
+    "output": "src/lib/rtt/librtt.a.p/Syscalls_SEGGER_RTT_Syscalls_GCC.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_core_eeprom_fsm.c.o -MF firmware.elf.p/src_core_eeprom_fsm.c.o.d -o firmware.elf.p/src_core_eeprom_fsm.c.o -c ../src/core/eeprom_fsm.c",
+    "file": "../src/core/eeprom_fsm.c",
+    "output": "firmware.elf.p/src_core_eeprom_fsm.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_core_led_fsm.c.o -MF firmware.elf.p/src_core_led_fsm.c.o.d -o firmware.elf.p/src_core_led_fsm.c.o -c ../src/core/led_fsm.c",
+    "file": "../src/core/led_fsm.c",
+    "output": "firmware.elf.p/src_core_led_fsm.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_core_can_fsm.c.o -MF firmware.elf.p/src_core_can_fsm.c.o.d -o firmware.elf.p/src_core_can_fsm.c.o -c ../src/core/can_fsm.c",
+    "file": "../src/core/can_fsm.c",
+    "output": "firmware.elf.p/src_core_can_fsm.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_core_lora_fsm.c.o -MF firmware.elf.p/src_core_lora_fsm.c.o.d -o firmware.elf.p/src_core_lora_fsm.c.o -c ../src/core/lora_fsm.c",
+    "file": "../src/core/lora_fsm.c",
+    "output": "firmware.elf.p/src_core_lora_fsm.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_core_radio_fsm.c.o -MF firmware.elf.p/src_core_radio_fsm.c.o.d -o firmware.elf.p/src_core_radio_fsm.c.o -c ../src/core/radio_fsm.c",
+    "file": "../src/core/radio_fsm.c",
+    "output": "firmware.elf.p/src_core_radio_fsm.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_eeprom.c.o -MF firmware.elf.p/src_drivers_eeprom.c.o.d -o firmware.elf.p/src_drivers_eeprom.c.o -c ../src/drivers/eeprom.c",
+    "file": "../src/drivers/eeprom.c",
+    "output": "firmware.elf.p/src_drivers_eeprom.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_i2c.c.o -MF firmware.elf.p/src_drivers_i2c.c.o.d -o firmware.elf.p/src_drivers_i2c.c.o -c ../src/drivers/i2c.c",
+    "file": "../src/drivers/i2c.c",
+    "output": "firmware.elf.p/src_drivers_i2c.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_led.c.o -MF firmware.elf.p/src_drivers_led.c.o.d -o firmware.elf.p/src_drivers_led.c.o -c ../src/drivers/led.c",
+    "file": "../src/drivers/led.c",
+    "output": "firmware.elf.p/src_drivers_led.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_rtc.c.o -MF firmware.elf.p/src_drivers_rtc.c.o.d -o firmware.elf.p/src_drivers_rtc.c.o -c ../src/drivers/rtc.c",
+    "file": "../src/drivers/rtc.c",
+    "output": "firmware.elf.p/src_drivers_rtc.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_spi.c.o -MF firmware.elf.p/src_drivers_spi.c.o.d -o firmware.elf.p/src_drivers_spi.c.o -c ../src/drivers/spi.c",
+    "file": "../src/drivers/spi.c",
+    "output": "firmware.elf.p/src_drivers_spi.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_sx126x.c.o -MF firmware.elf.p/src_drivers_sx126x.c.o.d -o firmware.elf.p/src_drivers_sx126x.c.o -c ../src/drivers/sx126x.c",
+    "file": "../src/drivers/sx126x.c",
+    "output": "firmware.elf.p/src_drivers_sx126x.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_drivers_uart.c.o -MF firmware.elf.p/src_drivers_uart.c.o.d -o firmware.elf.p/src_drivers_uart.c.o -c ../src/drivers/uart.c",
+    "file": "../src/drivers/uart.c",
+    "output": "firmware.elf.p/src_drivers_uart.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_instrument.c.o -MF firmware.elf.p/src_instrument.c.o.d -o firmware.elf.p/src_instrument.c.o -c ../src/instrument.c",
+    "file": "../src/instrument.c",
+    "output": "firmware.elf.p/src_instrument.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_main.c.o -MF firmware.elf.p/src_main.c.o.d -o firmware.elf.p/src_main.c.o -c ../src/main.c",
+    "file": "../src/main.c",
+    "output": "firmware.elf.p/src_main.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_stack.c.o -MF firmware.elf.p/src_stack.c.o.d -o firmware.elf.p/src_stack.c.o -c ../src/stack.c",
+    "file": "../src/stack.c",
+    "output": "firmware.elf.p/src_stack.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_system_startup_stm32f103xb.c.o -MF firmware.elf.p/src_system_startup_stm32f103xb.c.o.d -o firmware.elf.p/src_system_startup_stm32f103xb.c.o -c ../src/system/startup_stm32f103xb.c",
+    "file": "../src/system/startup_stm32f103xb.c",
+    "output": "firmware.elf.p/src_system_startup_stm32f103xb.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_system_syscalls.c.o -MF firmware.elf.p/src_system_syscalls.c.o.d -o firmware.elf.p/src_system_syscalls.c.o -c ../src/system/syscalls.c",
+    "file": "../src/system/syscalls.c",
+    "output": "firmware.elf.p/src_system_syscalls.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_system_system_stm32f1xx.c.o -MF firmware.elf.p/src_system_system_stm32f1xx.c.o.d -o firmware.elf.p/src_system_system_stm32f1xx.c.o -c ../src/system/system_stm32f1xx.c",
+    "file": "../src/system/system_stm32f1xx.c",
+    "output": "firmware.elf.p/src_system_system_stm32f1xx.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_system_systick.c.o -MF firmware.elf.p/src_system_systick.c.o.d -o firmware.elf.p/src_system_systick.c.o -c ../src/system/systick.c",
+    "file": "../src/system/systick.c",
+    "output": "firmware.elf.p/src_system_systick.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_utils_counter.c.o -MF firmware.elf.p/src_utils_counter.c.o.d -o firmware.elf.p/src_utils_counter.c.o -c ../src/utils/counter.c",
+    "file": "../src/utils/counter.c",
+    "output": "firmware.elf.p/src_utils_counter.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_utils_delay.c.o -MF firmware.elf.p/src_utils_delay.c.o.d -o firmware.elf.p/src_utils_delay.c.o -c ../src/utils/delay.c",
+    "file": "../src/utils/delay.c",
+    "output": "firmware.elf.p/src_utils_delay.c.o"
+  },
+  {
+    "directory": "/home/pl/nohal/build",
+    "command": "arm-none-eabi-gcc -Ifirmware.elf.p -I. -I.. -Isrc -I../src -I../src/core -Isrc/lib -I../src/lib -I../src/drivers -I../src/utils -I../src/system -I../src/system/drivers -I../src/system/drivers/core -I../src/system/drivers/cmsis -I../src/lib/rtt/Config -I../src/lib/rtt/RTT -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -std=gnu23 -Os -g -DSTM32F103xB -DENABLE_TRACES -DDEBUG -ffunction-sections -fdata-sections -fdump-ipa-cgraph-all -mcpu=cortex-m3 -mthumb -mlong-calls -fstack-usage -fcallgraph-info=su,da -MD -MQ firmware.elf.p/src_utils_trace.c.o -MF firmware.elf.p/src_utils_trace.c.o.d -o firmware.elf.p/src_utils_trace.c.o -c ../src/utils/trace.c",
+    "file": "../src/utils/trace.c",
+    "output": "firmware.elf.p/src_utils_trace.c.o"
+  }
+]

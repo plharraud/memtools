@@ -2,24 +2,27 @@ import sys
 import re
 import logging
 from pprint import pp
+import pathlib
 
-log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
 
-discarded_full_r = re.compile(r"^\s+(\S+) +(0x\S+)\s+(0x\S+)\s+(\S+)$")
+log = logging.getLogger()
+log.addHandler(logging.StreamHandler())
+log.setLevel(logging.WARNING)
+
+discarded_full_r = re.compile(r"^\s+(\S+) +(0x\S+)\s+(0x\S+)\s+(.+)$")
 discarded_symbol_r = re.compile(r"^\s(\S+)$")
-discarded_remain_r = re.compile(r"^\s+(0x\S+)\s+(0x\S+)\s+(\S+)")
+discarded_remain_r = re.compile(r"^\s+(0x\S+)\s+(0x\S+)\s+(.+)")
 
 memory_config_header_r = re.compile(r"^Name\s+Origin\s+Length\s+Attributes$")
 memory_config_regions_r = re.compile(r"^(\S+) +(0x\S+) +(0x\S+)(?: +([x|r|w]+))?")
 
 memory_map_load_r = re.compile(r"^LOAD (.+)$")
 memory_map_load_group_r = re.compile(r"^(?:START|END) GROUP$")
-memory_map_section_r = re.compile(r"^(\.\S+)\s+(0x\S+)\s+(0x\S+)$")
+memory_map_section_r = re.compile(r"^(\S+)\s+(0x\S+)\s+(0x\S+)$")
 
 memory_map_symbol_only_r = re.compile(r"^\s(.\S+)$")
-memory_map_symbol_only_remain_r = re.compile(r"^\s*\s+(0x\S+)\s+(0x\S+)\s+(\S+)$")
-memory_map_symbol_with_object_r = re.compile(r"^\s*(\.\S+)\s+(0x\S+)\s+(0x\S+)\s+(\S+)$")
+memory_map_symbol_only_remain_r = re.compile(r"^\s*\s+(0x\S+)\s+(0x\S+)\s+(.+)$")
+memory_map_symbol_with_object_r = re.compile(r"^\s*(\S+)\s+(0x\S+)\s+(0x\S+)\s+(.+)$")
 memory_map_subsymbol_r = re.compile(r"^\s+(0x\S+)\s+(\S+)$")
 
 memory_map_linker_stubs_r = re.compile(r"^\s*(\.\S+)\s+(0x\S+)\s+(0x\S+) linker stubs$")
@@ -27,7 +30,7 @@ memory_map_fill_r = re.compile(r"^\s+\*fill\*\s+(0x\S+)\s+(0x\S+) $")
 memory_map_relaxed_size_r = re.compile(r"^\s+(0x\S+)\s+\(size before relaxing\)$")
 
 memory_map_load_address_r = re.compile(r"^\s*(\.\S+)\s+(0x\S+)\s+(0x\S+) load address (0x\S+)$")
-memory_map_output_r = re.compile(r"^OUTPUT\((\S+\.elf)\s+(\S+)\)$")
+memory_map_output_r = re.compile(r"^OUTPUT\((\S+)\s+(\S+)\)$")
 
 
 def parse_mapfile(mapfile_path):
@@ -79,7 +82,7 @@ def parse_mapfile(mapfile_path):
                         discarded_symbols[-1] = discarded_symbols[-1] + m.groups()
 
                     else:
-                        log.warning("no match", line)
+                        log.warning("discarded: no match %s", line)
 
                 elif map_section == "memory_config":
                     if m := memory_config_regions_r.match(line):
@@ -90,7 +93,12 @@ def parse_mapfile(mapfile_path):
                         log.error("memory config parse error %s", line)
 
                 elif map_section == "memory_map":
-                    if m := memory_map_section_r.match(line):
+                    if m := memory_map_load_address_r.match(line):
+                        log.debug("found section with load address")
+                        memory_map_state = ""
+                        memory_map_sections.append(m.groups())
+
+                    elif m := memory_map_section_r.match(line):
                         log.debug("found section, resetting state")
                         memory_map_state = ""
                         memory_map_sections.append(m.groups())
@@ -106,6 +114,10 @@ def parse_mapfile(mapfile_path):
                             log.debug("ignore load group")
                             pass
 
+                        elif m := memory_map_linker_stubs_r.match(line):
+                            log.debug("ignoring linker stubs")
+                            pass
+
                         elif m := memory_map_symbol_with_object_r.match(line):
                             log.debug("found symbol with object")
                             memory_map_state = "symbol_with_object"
@@ -119,12 +131,9 @@ def parse_mapfile(mapfile_path):
                         elif m := memory_map_symbol_only_remain_r.match(line):
                             log.error("should not be here")
 
-                        elif m := memory_map_linker_stubs_r.match(line):
-                            log.debug("ignoring linker stubs")
-                            pass
-
                         else:
                             log.warning("line could not be matched within initial state")
+                            log.warning(line)
 
                     elif memory_map_state == "symbol_only":
                         if m := memory_map_symbol_only_remain_r.match(line):
@@ -145,10 +154,15 @@ def parse_mapfile(mapfile_path):
 
                         else:
                             # todo handle linkerscript symbols
-                            log.error("error symbol only end not handled")
+                            log.error("symbol only end not handled")
+                            log.warning(line)
 
                     elif memory_map_state == "symbol_with_object":
-                        if m := memory_map_subsymbol_r.match(line):
+                        if m := memory_map_load_address_r.match(line):
+                            log.debug("found section with load address")
+                            memory_map_sections.append(m.groups())
+
+                        elif m := memory_map_subsymbol_r.match(line):
                             log.debug("found subsymbol, after symbol with object")
                             memory_map_state = "subsymbol"
                             memory_map_symbols[-1]["symbols"].append(m.groups())
@@ -173,13 +187,10 @@ def parse_mapfile(mapfile_path):
                             memory_map_state = "symbol_with_object"  # no change
                             memory_map_symbols.append({"first": m.groups(), "symbols": []})
 
-                        elif m := memory_map_load_address_r.match(line):
-                            log.debug("found section with load address")
-                            memory_map_sections.append(m.groups())
-
                         elif m := memory_map_output_r.match(line):
                             memory_map_output = m.groups()  # noqa: F841
                             map_section = "debug_info"
+                            break
 
                         else:
                             # todo parse linkerscript symbols
@@ -206,7 +217,8 @@ def parse_mapfile(mapfile_path):
 
                         else:
                             memory_map_state = ""
-                            log.warning("unknown line, state=subsymbol or symbol with object")
+                            log.warning("unknown line, state= %s", memory_map_state)
+                            log.warning(line)
                             # todo parse linkerscript symbols
 
                     elif map_section == "debug_info":
@@ -216,7 +228,7 @@ def parse_mapfile(mapfile_path):
                         pass
 
                     else:
-                        log.error(memory_map_state, "state not implemented")
+                        log.error("state not implemented %s", memory_map_state)
 
                     log.debug("%d %s", i, line)
                     log.debug("===============")
@@ -231,14 +243,27 @@ def parse_mapfile(mapfile_path):
     }
 
 
-def process_mapfile(mapfile_path) -> dict[str, list]:
+def process_mapfile(mapfile_path: str):
     parsed_mapfile = parse_mapfile(mapfile_path)
 
+    ignored = [
+        ".ARM.attributes",
+        ".comment",
+        ".debug_info",
+        ".debug_abbrev",
+        ".debug_loclists",
+        ".debug_aranges",
+        ".debug_rnglists",
+        ".debug_line",
+        ".debug_str",
+        ".debug_frame",
+        ".debug_line_str",
+    ]
     return {
         "regions": parse_regions(parsed_mapfile["regions"]),
         "sections": parse_sections(parsed_mapfile["sections"]),
         "object_files": parse_object_files(parsed_mapfile["loads"]),
-        "symbols": parse_symbols(parsed_mapfile["symbols"], [".ARM.attributes"]),
+        "symbols": parse_symbols(parsed_mapfile["symbols"], ignored),
     }
 
 
@@ -316,37 +341,53 @@ def parse_symbols(symbols, ignored) -> list[Symbol]:
         else:
             sym = Symbol()
             splits = s["first"][0].split(".")  # ["", "section"?, "symbol"]
-            if len(splits) == 3:  # has section(1) and symbol(2)
+
+            if len(splits) > 3:
+                log.debug(". in symbol name, merging")
+                sym.section = splits[1]
+                sym.name = ".".join(splits[2:])
+
+            elif len(splits) == 3:  # has section(1) and symbol(2)
                 log.debug("section and symbol")
                 sym.section = splits[1]
                 sym.name = splits[2]
                 if len(s["symbols"]) > 0:
                     if sym.name != s["symbols"][0][1]:
-                        log.error("fist.name != symbols[0]")
+                        # happens with weak overloaded symbols
+                        # or with compiler routines that share the same start address
+                        log.error("first.name != symbols[0] : %s / %s", sym.name, s["symbols"][0][1])
 
             elif len(splits) == 2:  # has only section(1)
                 if len(s["symbols"]) > 0:  # symbol with object, at least 1 subsymbol
                     log.debug("only section, with subsymbol")
                     sym.name = s["symbols"][0][1]
-                    sym.section = splits[1]
+                    sym.section = splits[-1]
                 else:
-                    log.debug("only section, no subsymbol")
-                    sym.name = splits[1]
-                    sym.section = splits[1]
+                    log.warning("only section, no subsymbol")
+                    log.warning(s)
+                    sym.name = splits[-1]
+                    sym.section = splits[-1]
 
-            elif len(splits) > 3:
-                log.debug(". in symbol name")
-                sym.section = splits[1]
-                sym.name = ".".join(splits[2:])
+            elif len(splits) == 1:  # only section with no preceding .
+                if len(s["symbols"]) > 0:  # symbol with object, at least 1 subsymbol
+                    log.debug("only section name with no . before, with subsymbol")
+                    sym.name = s["symbols"][0][1]
+                    sym.section = splits[-1]
+                else:
+                    log.warning("only section name with no . before, no subsymbol")
+                    sym.name = splits[-1]
+                    sym.section = splits[-1]
 
             else:
                 log.error("unhandled split length")
+                log.error(splits)
 
             sym.address = int(s["first"][1], 16)
             sym.size = int(s["first"][2], 16)
             sym.object_file = ObjectFile(s["first"][3])
 
-            log.debug(s, "\n", sym)
+            log.debug(s)
+            log.debug(sym)
             ret.append(sym)
 
     return ret
@@ -354,24 +395,25 @@ def parse_symbols(symbols, ignored) -> list[Symbol]:
 
 # /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/libgcc.a(_arm_unorddf2.o)
 # -> ("/usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7-m/nofp/libgcc.a", "_arm_unorddf2.o")
-compile_unit_archive_r = re.compile(r"^(\S+)\((\S+)\)")
+compile_unit_archive_r = re.compile(r"^(.+)\((\S+)\)")
 
 
 class ObjectFile:
     def __init__(self, obj_string):
+        obj_string = obj_string.replace("\\", "/")
         if m := compile_unit_archive_r.match(obj_string):
             self.type = "archive"
             g = m.groups()
-            self.compile_unit = g[0].split("/")[-1]
+            self.compile_unit = g[0]
             self.object_file = g[1]
         else:
             self.type = "object"
-            self.object_file = obj_string
             self.compile_unit = obj_string
+            self.object_file = obj_string.split("/")[-1]
 
-        if obj_string.startswith("/"):
+        if obj_string.startswith("/") or ":" in obj_string:  # linux or windows absolute path
             self.source = "system"
-            self.compile_unit = self.compile_unit.split("/")[-1]
+            self.compile_unit = str(pathlib.Path(self.compile_unit).resolve())
         else:
             self.source = "project"
 
@@ -393,10 +435,11 @@ if __name__ == "__main__":
     if not (len(sys.argv) == 2 and sys.argv[1].split(".")[-1].lower() == "map"):
         print("usage:", sys.argv[0], "<mapfile>")
     else:
-        mapfile = parse_mapfile(sys.argv[1])
+        mapfile = process_mapfile(sys.argv[1])
 
         for s in mapfile["symbols"]:
+            # print(s.object_file)
             if s.object_file not in mapfile["object_files"]:
-                log.warning("BAD", s.object_file)
+                log.warning("BAD %s", s.object_file)
 
-        pp(mapfile)
+        # pp(mapfile)

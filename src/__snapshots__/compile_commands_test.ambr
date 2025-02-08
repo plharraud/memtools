@@ -1,0 +1,135 @@
+# serializer version: 1
+# name: test_parse_compile_commands
+  list([
+    dict({
+      'object': 'build/src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_ASM_ARMv7M.S.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/lib/rtt/RTT/SEGGER_RTT_ASM_ARMv7M.S',
+    }),
+    dict({
+      'object': 'build/src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT_printf.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/lib/rtt/RTT/SEGGER_RTT_printf.c',
+    }),
+    dict({
+      'object': 'build/src/lib/rtt/librtt.a.p/RTT_SEGGER_RTT.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/lib/rtt/RTT/SEGGER_RTT.c',
+    }),
+    dict({
+      'object': 'build/src/lib/rtt/librtt.a.p/Syscalls_SEGGER_RTT_Syscalls_GCC.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/lib/rtt/Syscalls/SEGGER_RTT_Syscalls_GCC.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_core_eeprom_fsm.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/core/eeprom_fsm.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_core_led_fsm.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/core/led_fsm.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_core_can_fsm.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/core/can_fsm.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_core_lora_fsm.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/core/lora_fsm.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_core_radio_fsm.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/core/radio_fsm.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_eeprom.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/eeprom.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_i2c.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/i2c.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_led.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/led.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_rtc.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/rtc.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_spi.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/spi.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_sx126x.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/sx126x.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_drivers_uart.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/drivers/uart.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_instrument.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/instrument.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_main.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/main.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_stack.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/stack.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_system_startup_stm32f103xb.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/system/startup_stm32f103xb.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_system_syscalls.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/system/syscalls.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_system_system_stm32f1xx.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/system/system_stm32f1xx.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_system_systick.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/system/systick.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_utils_counter.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/utils/counter.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_utils_delay.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/utils/delay.c',
+    }),
+    dict({
+      'object': 'build/firmware.elf.p/src_utils_trace.c.o',
+      'root': '/home/pl/nohal',
+      'source': 'src/utils/trace.c',
+    }),
+  ])
+# ---
