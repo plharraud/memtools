@@ -1,7 +1,6 @@
 import sys
 import re
 import logging
-from pprint import pp
 import pathlib
 
 
@@ -131,6 +130,10 @@ def parse_mapfile(mapfile_path):
                         elif m := memory_map_symbol_only_remain_r.match(line):
                             log.error("should not be here")
 
+                        elif m := memory_map_output_r.match(line):
+                            memory_map_output = m.groups()  # noqa: F841
+                            map_section = "debug_info"
+                            
                         else:
                             log.warning("line could not be matched within initial state")
                             log.warning(line)
@@ -151,6 +154,10 @@ def parse_mapfile(mapfile_path):
                             log.debug("found symbol only, after another symbol only")
                             memory_map_state = "symbol_only"  # no change
                             memory_map_symbols.append({"first": m.groups(), "symbols": []})
+
+                        elif m := memory_map_output_r.match(line):
+                            memory_map_output = m.groups()  # noqa: F841
+                            map_section = "debug_info"
 
                         else:
                             # todo handle linkerscript symbols
@@ -190,7 +197,6 @@ def parse_mapfile(mapfile_path):
                         elif m := memory_map_output_r.match(line):
                             memory_map_output = m.groups()  # noqa: F841
                             map_section = "debug_info"
-                            break
 
                         else:
                             # todo parse linkerscript symbols
@@ -214,6 +220,10 @@ def parse_mapfile(mapfile_path):
                         elif m := memory_map_fill_r.match(line):
                             log.debug("found padding")
                             memory_map_state = "symbol_with_object"
+
+                        elif m := memory_map_output_r.match(line):
+                            memory_map_output = m.groups()  # noqa: F841
+                            map_section = "debug_info"
 
                         else:
                             memory_map_state = ""
@@ -441,5 +451,3 @@ if __name__ == "__main__":
             # print(s.object_file)
             if s.object_file not in mapfile["object_files"]:
                 log.warning("BAD %s", s.object_file)
-
-        # pp(mapfile)
